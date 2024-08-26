@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Focus Mode</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Focus Mode</h1>
+    <p>Stay focused on your work by blocking distracting websites and using a timer.</p>
+    <button id="start-button">Start Focus Mode</button>
+    <button id="stop-button" style="display: none;">Stop Focus Mode</button>
+    <div id="timer-container">
+      <p id="timer">00:00:00</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+<!-- how it is work
+
+
+Here's a step-by-step explanation of how the Focus Mode extension works:
+
+1. User clicks the extension icon:
+
+When the user clicks the Focus Mode extension icon in the browser toolbar, the popup.html file is loaded in a new popup window.
+
+2. User clicks the "Start Focus Mode" button:
+
+When the user clicks the "Start Focus Mode" button, the startTimer() function is called. This function:
+
+Hides the "Start Focus Mode" button and shows the "Stop Focus Mode" button.
+Sets the timer text to the duration (e.g., 25 minutes).
+Starts a timer using the setInterval() function, which decrements the timer every second.
+3. Timer is running:
+
+While the timer is running, the blockDistractingWebsites() function is called every time the user navigates to a new tab or updates an existing tab. This function:
+
+Checks if the current tab is a distracting website (e.g., Facebook, Twitter, YouTube) by checking the URL against the distractingWebsites array.
+If the current tab is a distracting website, the function blocks the website by updating the tab's URL to Google.com (or any other website you want to redirect to).
+4. User clicks the "Stop Focus Mode" button:
+
+When the user clicks the "Stop Focus Mode" button, the stopTimer() function is called. This function:
+
+Shows the "Start Focus Mode" button and hides the "Stop Focus Mode" button.
+Resets the timer text to "00:00:00".
+5. Timer expires:
+
+When the timer expires (i.e., reaches 0), the stopTimer() function is called automatically, and the timer is reset.
+
+How the extension interacts with the browser:
+
+The extension uses the following browser APIs to interact with the browser:
+
+chrome.tabs: This API allows the extension to interact with tabs, such as getting the current tab, updating the tab's URL, and listening for tab updates.
+chrome.tabs.onUpdated: This event listener is used to listen for tab updates, such as when the user navigates to a new tab or updates an existing tab.
+How the extension is packaged:
+
+The extension is packaged as a .crx file, which contains the following files:
+
+manifest.json: This file contains metadata about the extension, such as its name, version, and permissions.
+popup.html: This file contains the HTML for the popup window.
+styles.css: This file contains the CSS styles for the popup window.
+script.js: This file contains the JavaScript code that runs in the popup window.
+To load the extension in the browser, you need to go to chrome://extensions/, enable developer mode, and click "Load unpacked". Then, select the folder that contains the extension's files. -->
